@@ -19,7 +19,7 @@ class JokeRepository implements IJokeRepository {
     final jokeDoc = await client.get(
       Uri.parse('https://icanhazdadjoke.com/'),
       headers: {
-        'Content-Type': 'application/json',
+        'Accept': 'application/json',
       },
     );
 

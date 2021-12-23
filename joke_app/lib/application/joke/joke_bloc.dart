@@ -21,8 +21,11 @@ class JokeBloc extends Bloc<JokeEvent, JokeState> {
       await event.map<FutureOr<void>>(getRandomJokeRequested: (e) async {
         emit(const JokeState.loadInProgress());
         final failureOrJoke = await _jokeRepository.getRandomJoke();
-        emit(failureOrJoke.fold((f) => JokeState.loadFailure(f),
-            (joke) => JokeState.loadSuccess(joke)));
+        emit(failureOrJoke.fold((f) {
+          return JokeState.loadFailure(f);
+        }, (joke) {
+          return JokeState.loadSuccess(joke);
+        }));
       });
     });
   }

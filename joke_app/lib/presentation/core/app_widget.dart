@@ -13,9 +13,10 @@ class AppWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(
-            create: (context) => getIt<NetworkBloc>()
-              ..add(const NetworkEvent.networkStatusCheckRequested())),
+        BlocProvider(create: (context) {
+          return getIt<NetworkBloc>()
+            ..add(const NetworkEvent.networkStatusCheckRequested());
+        }),
       ],
       child: MaterialApp.router(
         title: 'Jokes',
