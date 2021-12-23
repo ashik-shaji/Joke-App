@@ -2,7 +2,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
 
-part of 'joke.dart';
+part of 'joke_dtos.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -13,44 +13,53 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-/// @nodoc
-class _$JokeTearOff {
-  const _$JokeTearOff();
+JokeDto _$JokeDtoFromJson(Map<String, dynamic> json) {
+  return _JokeDto.fromJson(json);
+}
 
-  _Joke call({required String id, required String joke}) {
-    return _Joke(
+/// @nodoc
+class _$JokeDtoTearOff {
+  const _$JokeDtoTearOff();
+
+  _JokeDto call({required String id, required String joke}) {
+    return _JokeDto(
       id: id,
       joke: joke,
     );
   }
+
+  JokeDto fromJson(Map<String, Object?> json) {
+    return JokeDto.fromJson(json);
+  }
 }
 
 /// @nodoc
-const $Joke = _$JokeTearOff();
+const $JokeDto = _$JokeDtoTearOff();
 
 /// @nodoc
-mixin _$Joke {
+mixin _$JokeDto {
   String get id => throw _privateConstructorUsedError;
   String get joke => throw _privateConstructorUsedError;
 
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $JokeCopyWith<Joke> get copyWith => throw _privateConstructorUsedError;
+  $JokeDtoCopyWith<JokeDto> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $JokeCopyWith<$Res> {
-  factory $JokeCopyWith(Joke value, $Res Function(Joke) then) =
-      _$JokeCopyWithImpl<$Res>;
+abstract class $JokeDtoCopyWith<$Res> {
+  factory $JokeDtoCopyWith(JokeDto value, $Res Function(JokeDto) then) =
+      _$JokeDtoCopyWithImpl<$Res>;
   $Res call({String id, String joke});
 }
 
 /// @nodoc
-class _$JokeCopyWithImpl<$Res> implements $JokeCopyWith<$Res> {
-  _$JokeCopyWithImpl(this._value, this._then);
+class _$JokeDtoCopyWithImpl<$Res> implements $JokeDtoCopyWith<$Res> {
+  _$JokeDtoCopyWithImpl(this._value, this._then);
 
-  final Joke _value;
+  final JokeDto _value;
   // ignore: unused_field
-  final $Res Function(Joke) _then;
+  final $Res Function(JokeDto) _then;
 
   @override
   $Res call({
@@ -71,28 +80,28 @@ class _$JokeCopyWithImpl<$Res> implements $JokeCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$JokeCopyWith<$Res> implements $JokeCopyWith<$Res> {
-  factory _$JokeCopyWith(_Joke value, $Res Function(_Joke) then) =
-      __$JokeCopyWithImpl<$Res>;
+abstract class _$JokeDtoCopyWith<$Res> implements $JokeDtoCopyWith<$Res> {
+  factory _$JokeDtoCopyWith(_JokeDto value, $Res Function(_JokeDto) then) =
+      __$JokeDtoCopyWithImpl<$Res>;
   @override
   $Res call({String id, String joke});
 }
 
 /// @nodoc
-class __$JokeCopyWithImpl<$Res> extends _$JokeCopyWithImpl<$Res>
-    implements _$JokeCopyWith<$Res> {
-  __$JokeCopyWithImpl(_Joke _value, $Res Function(_Joke) _then)
-      : super(_value, (v) => _then(v as _Joke));
+class __$JokeDtoCopyWithImpl<$Res> extends _$JokeDtoCopyWithImpl<$Res>
+    implements _$JokeDtoCopyWith<$Res> {
+  __$JokeDtoCopyWithImpl(_JokeDto _value, $Res Function(_JokeDto) _then)
+      : super(_value, (v) => _then(v as _JokeDto));
 
   @override
-  _Joke get _value => super._value as _Joke;
+  _JokeDto get _value => super._value as _JokeDto;
 
   @override
   $Res call({
     Object? id = freezed,
     Object? joke = freezed,
   }) {
-    return _then(_Joke(
+    return _then(_JokeDto(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -106,9 +115,12 @@ class __$JokeCopyWithImpl<$Res> extends _$JokeCopyWithImpl<$Res>
 }
 
 /// @nodoc
+@JsonSerializable()
+class _$_JokeDto extends _JokeDto {
+  const _$_JokeDto({required this.id, required this.joke}) : super._();
 
-class _$_Joke implements _Joke {
-  const _$_Joke({required this.id, required this.joke});
+  factory _$_JokeDto.fromJson(Map<String, dynamic> json) =>
+      _$$_JokeDtoFromJson(json);
 
   @override
   final String id;
@@ -117,14 +129,14 @@ class _$_Joke implements _Joke {
 
   @override
   String toString() {
-    return 'Joke(id: $id, joke: $joke)';
+    return 'JokeDto(id: $id, joke: $joke)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _Joke &&
+            other is _JokeDto &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.joke, joke));
   }
@@ -137,12 +149,21 @@ class _$_Joke implements _Joke {
 
   @JsonKey(ignore: true)
   @override
-  _$JokeCopyWith<_Joke> get copyWith =>
-      __$JokeCopyWithImpl<_Joke>(this, _$identity);
+  _$JokeDtoCopyWith<_JokeDto> get copyWith =>
+      __$JokeDtoCopyWithImpl<_JokeDto>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_JokeDtoToJson(this);
+  }
 }
 
-abstract class _Joke implements Joke {
-  const factory _Joke({required String id, required String joke}) = _$_Joke;
+abstract class _JokeDto extends JokeDto {
+  const factory _JokeDto({required String id, required String joke}) =
+      _$_JokeDto;
+  const _JokeDto._() : super._();
+
+  factory _JokeDto.fromJson(Map<String, dynamic> json) = _$_JokeDto.fromJson;
 
   @override
   String get id;
@@ -150,5 +171,6 @@ abstract class _Joke implements Joke {
   String get joke;
   @override
   @JsonKey(ignore: true)
-  _$JokeCopyWith<_Joke> get copyWith => throw _privateConstructorUsedError;
+  _$JokeDtoCopyWith<_JokeDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
