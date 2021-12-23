@@ -1,5 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:joke_app/domain/jokes/joke.dart';
+import 'package:joke_app/domain/joke/joke.dart';
 
 part 'joke_dtos.freezed.dart';
 part 'joke_dtos.g.dart';

@@ -1,11 +1,11 @@
 import 'dart:convert';
 
 import 'package:dartz/dartz.dart';
-import 'package:joke_app/domain/jokes/i_joke_repository.dart';
-import 'package:joke_app/domain/jokes/joke.dart';
-import 'package:joke_app/domain/jokes/joke_failure.dart';
+import 'package:joke_app/domain/joke/i_joke_repository.dart';
+import 'package:joke_app/domain/joke/joke.dart';
+import 'package:joke_app/domain/joke/joke_failure.dart';
 import 'package:http/http.dart' as http;
-import 'package:joke_app/infrastructure/joke_dtos.dart';
+import 'package:joke_app/infrastructure/joke/joke_dtos.dart';
 
 class JokeRepository implements IJokeRepository {
   final http.Client client;
@@ -15,7 +15,7 @@ class JokeRepository implements IJokeRepository {
   @override
   Future<Either<JokeFailure, Joke>> getRandomJoke() async {
     final jokeDoc = await client.get(
-      Uri.parse(''),
+      Uri.parse('https://icanhazdadjoke.com/'),
       headers: {
         'Content-Type': 'application/json',
       },

@@ -2,9 +2,9 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:joke_app/domain/jokes/i_joke_repository.dart';
-import 'package:joke_app/domain/jokes/joke.dart';
-import 'package:joke_app/domain/jokes/joke_failure.dart';
+import 'package:joke_app/domain/joke/i_joke_repository.dart';
+import 'package:joke_app/domain/joke/joke.dart';
+import 'package:joke_app/domain/joke/joke_failure.dart';
 import 'package:meta/meta.dart';
 
 part 'joke_event.dart';
