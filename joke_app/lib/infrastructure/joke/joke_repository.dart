@@ -29,4 +29,10 @@ class JokeRepository implements IJokeRepository {
       return left(const JokeFailure.serverError());
     }
   }
+
+  @override
+  Future<Either<JokeFailure, Unit>> saveLocally(Joke joke) {
+    // TODO: implement saveLocally
+    throw UnimplementedError();
+  }
 }

@@ -18,12 +18,12 @@ class JokesPageBody extends StatelessWidget {
         loadSuccess: (state) => Center(
             child: Text(
           state.joke.joke,
-          style: TextStyle(color: Colors.blue),
+          style: const TextStyle(color: Colors.blue),
         )),
         loadFailure: (state) => Center(
             child: Text(
           state.jokeFailure.toString(),
-          style: TextStyle(color: Colors.blue),
+          style: const TextStyle(color: Colors.blue),
         )),
       );
     });

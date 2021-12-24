@@ -5,4 +5,5 @@ part 'joke_failure.freezed.dart';
 @freezed
 abstract class JokeFailure with _$JokeFailure {
   const factory JokeFailure.serverError() = _ServerError;
+  const factory JokeFailure.unableToSave() = _UnableToSave;
 }
