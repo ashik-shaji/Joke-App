@@ -24,6 +24,14 @@ class _$JokeFailureTearOff {
   _UnableToSave unableToSave() {
     return const _UnableToSave();
   }
+
+  _UnableToFetch unableToFetch() {
+    return const _UnableToFetch();
+  }
+
+  _UnableToDelete unableToDelete() {
+    return const _UnableToDelete();
+  }
 }
 
 /// @nodoc
@@ -35,18 +43,24 @@ mixin _$JokeFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() unableToSave,
+    required TResult Function() unableToFetch,
+    required TResult Function() unableToDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -54,18 +68,24 @@ mixin _$JokeFailure {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnableToSave value) unableToSave,
+    required TResult Function(_UnableToFetch value) unableToFetch,
+    required TResult Function(_UnableToDelete value) unableToDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -129,6 +149,8 @@ class _$_ServerError implements _ServerError {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() unableToSave,
+    required TResult Function() unableToFetch,
+    required TResult Function() unableToDelete,
   }) {
     return serverError();
   }
@@ -138,6 +160,8 @@ class _$_ServerError implements _ServerError {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
   }) {
     return serverError?.call();
   }
@@ -147,6 +171,8 @@ class _$_ServerError implements _ServerError {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -160,6 +186,8 @@ class _$_ServerError implements _ServerError {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnableToSave value) unableToSave,
+    required TResult Function(_UnableToFetch value) unableToFetch,
+    required TResult Function(_UnableToDelete value) unableToDelete,
   }) {
     return serverError(this);
   }
@@ -169,6 +197,8 @@ class _$_ServerError implements _ServerError {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
   }) {
     return serverError?.call(this);
   }
@@ -178,6 +208,8 @@ class _$_ServerError implements _ServerError {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
     required TResult orElse(),
   }) {
     if (serverError != null) {
@@ -233,6 +265,8 @@ class _$_UnableToSave implements _UnableToSave {
   TResult when<TResult extends Object?>({
     required TResult Function() serverError,
     required TResult Function() unableToSave,
+    required TResult Function() unableToFetch,
+    required TResult Function() unableToDelete,
   }) {
     return unableToSave();
   }
@@ -242,6 +276,8 @@ class _$_UnableToSave implements _UnableToSave {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
   }) {
     return unableToSave?.call();
   }
@@ -251,6 +287,8 @@ class _$_UnableToSave implements _UnableToSave {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? serverError,
     TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
     required TResult orElse(),
   }) {
     if (unableToSave != null) {
@@ -264,6 +302,8 @@ class _$_UnableToSave implements _UnableToSave {
   TResult map<TResult extends Object?>({
     required TResult Function(_ServerError value) serverError,
     required TResult Function(_UnableToSave value) unableToSave,
+    required TResult Function(_UnableToFetch value) unableToFetch,
+    required TResult Function(_UnableToDelete value) unableToDelete,
   }) {
     return unableToSave(this);
   }
@@ -273,6 +313,8 @@ class _$_UnableToSave implements _UnableToSave {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
   }) {
     return unableToSave?.call(this);
   }
@@ -282,6 +324,8 @@ class _$_UnableToSave implements _UnableToSave {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_ServerError value)? serverError,
     TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
     required TResult orElse(),
   }) {
     if (unableToSave != null) {
@@ -293,4 +337,237 @@ class _$_UnableToSave implements _UnableToSave {
 
 abstract class _UnableToSave implements JokeFailure {
   const factory _UnableToSave() = _$_UnableToSave;
+}
+
+/// @nodoc
+abstract class _$UnableToFetchCopyWith<$Res> {
+  factory _$UnableToFetchCopyWith(
+          _UnableToFetch value, $Res Function(_UnableToFetch) then) =
+      __$UnableToFetchCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$UnableToFetchCopyWithImpl<$Res> extends _$JokeFailureCopyWithImpl<$Res>
+    implements _$UnableToFetchCopyWith<$Res> {
+  __$UnableToFetchCopyWithImpl(
+      _UnableToFetch _value, $Res Function(_UnableToFetch) _then)
+      : super(_value, (v) => _then(v as _UnableToFetch));
+
+  @override
+  _UnableToFetch get _value => super._value as _UnableToFetch;
+}
+
+/// @nodoc
+
+class _$_UnableToFetch implements _UnableToFetch {
+  const _$_UnableToFetch();
+
+  @override
+  String toString() {
+    return 'JokeFailure.unableToFetch()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _UnableToFetch);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() unableToSave,
+    required TResult Function() unableToFetch,
+    required TResult Function() unableToDelete,
+  }) {
+    return unableToFetch();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
+  }) {
+    return unableToFetch?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
+    required TResult orElse(),
+  }) {
+    if (unableToFetch != null) {
+      return unableToFetch();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnableToSave value) unableToSave,
+    required TResult Function(_UnableToFetch value) unableToFetch,
+    required TResult Function(_UnableToDelete value) unableToDelete,
+  }) {
+    return unableToFetch(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
+  }) {
+    return unableToFetch?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
+    required TResult orElse(),
+  }) {
+    if (unableToFetch != null) {
+      return unableToFetch(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnableToFetch implements JokeFailure {
+  const factory _UnableToFetch() = _$_UnableToFetch;
+}
+
+/// @nodoc
+abstract class _$UnableToDeleteCopyWith<$Res> {
+  factory _$UnableToDeleteCopyWith(
+          _UnableToDelete value, $Res Function(_UnableToDelete) then) =
+      __$UnableToDeleteCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$UnableToDeleteCopyWithImpl<$Res>
+    extends _$JokeFailureCopyWithImpl<$Res>
+    implements _$UnableToDeleteCopyWith<$Res> {
+  __$UnableToDeleteCopyWithImpl(
+      _UnableToDelete _value, $Res Function(_UnableToDelete) _then)
+      : super(_value, (v) => _then(v as _UnableToDelete));
+
+  @override
+  _UnableToDelete get _value => super._value as _UnableToDelete;
+}
+
+/// @nodoc
+
+class _$_UnableToDelete implements _UnableToDelete {
+  const _$_UnableToDelete();
+
+  @override
+  String toString() {
+    return 'JokeFailure.unableToDelete()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _UnableToDelete);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() serverError,
+    required TResult Function() unableToSave,
+    required TResult Function() unableToFetch,
+    required TResult Function() unableToDelete,
+  }) {
+    return unableToDelete();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
+  }) {
+    return unableToDelete?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? serverError,
+    TResult Function()? unableToSave,
+    TResult Function()? unableToFetch,
+    TResult Function()? unableToDelete,
+    required TResult orElse(),
+  }) {
+    if (unableToDelete != null) {
+      return unableToDelete();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_ServerError value) serverError,
+    required TResult Function(_UnableToSave value) unableToSave,
+    required TResult Function(_UnableToFetch value) unableToFetch,
+    required TResult Function(_UnableToDelete value) unableToDelete,
+  }) {
+    return unableToDelete(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
+  }) {
+    return unableToDelete?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_ServerError value)? serverError,
+    TResult Function(_UnableToSave value)? unableToSave,
+    TResult Function(_UnableToFetch value)? unableToFetch,
+    TResult Function(_UnableToDelete value)? unableToDelete,
+    required TResult orElse(),
+  }) {
+    if (unableToDelete != null) {
+      return unableToDelete(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UnableToDelete implements JokeFailure {
+  const factory _UnableToDelete() = _$_UnableToDelete;
 }

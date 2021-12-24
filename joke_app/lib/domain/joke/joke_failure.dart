@@ -6,4 +6,6 @@ part 'joke_failure.freezed.dart';
 abstract class JokeFailure with _$JokeFailure {
   const factory JokeFailure.serverError() = _ServerError;
   const factory JokeFailure.unableToSave() = _UnableToSave;
+  const factory JokeFailure.unableToFetch() = _UnableToFetch;
+  const factory JokeFailure.unableToDelete() = _UnableToDelete;
 }
