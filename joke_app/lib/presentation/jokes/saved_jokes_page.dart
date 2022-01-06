@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:joke_app/application/joke_delete/joke_delete_bloc.dart';
 import 'package:joke_app/application/watch_saved/watch_saved_bloc.dart';
 import 'package:joke_app/injection.dart';
@@ -23,9 +24,15 @@ class SavedJokesPage extends StatelessWidget {
       ],
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Saved Jokes'),
+          foregroundColor: Colors.black,
+          title: Text(
+            'Favorites',
+            style: GoogleFonts.righteous(
+              color: Colors.black,
+            ),
+          ),
           elevation: 0,
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.white,
         ),
         body: const SavedJokesBody(),
       ),

@@ -14,8 +14,8 @@ class JokesPageBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final height = MediaQuery.of(context).size.height.toInt();
-    final width = MediaQuery.of(context).size.width.toInt();
+    //final height = MediaQuery.of(context).size.height.toInt();
+    //final width = MediaQuery.of(context).size.width.toInt();
     return BlocBuilder<JokeBloc, JokeState>(builder: (context, state) {
       return state.map(
         initial: (_) => Container(),
@@ -95,10 +95,10 @@ class JokesPageBody extends StatelessWidget {
                             ),
                             child: Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  const Icon(Icons.favorite,
+                                children: const [
+                                  Icon(Icons.favorite,
                                       color: Color(0xFF16222A)),
-                                  const Text(
+                                  Text(
                                     'Add to favorites',
                                     style: TextStyle(color: Color(0xFF16222A)),
                                   ),

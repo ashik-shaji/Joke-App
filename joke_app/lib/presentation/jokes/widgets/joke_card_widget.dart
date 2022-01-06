@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_gradient_colors/flutter_gradient_colors.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:joke_app/application/joke_delete/joke_delete_bloc.dart';
+import 'package:joke_app/application/watch_saved/watch_saved_bloc.dart';
 import 'package:joke_app/domain/joke/joke.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:joke_app/presentation/routes/router.gr.dart';
 
 class JokeCard extends StatelessWidget {
   final Joke joke;
@@ -11,30 +15,52 @@ class JokeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Slidable(
-      endActionPane: ActionPane(motion: const DrawerMotion(), children: [
-        SlidableAction(
-          onPressed: (_) {
-            print('hai set');
-            context.read<JokeDeleteBloc>().add(JokeDeleteEvent.deleted(joke));
-          },
-          backgroundColor: Colors.red,
-          icon: Icons.delete,
-          label: 'Delete',
-        ),
-      ]),
-      child: Card(
-        color: Colors.green,
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return GestureDetector(
+      onTap: () {
+        context.router.push(SavedSingleJokePageRoute(joke: joke, ctx: context));
+      },
+      child: Slidable(
+        endActionPane: ActionPane(
+            extentRatio: 0.20,
+            motion: const DrawerMotion(),
             children: [
-              Text(
-                joke.joke,
-                style: const TextStyle(fontSize: 18, color: Colors.white),
+              SlidableAction(
+                onPressed: (_) {
+                  context
+                      .read<JokeDeleteBloc>()
+                      .add(JokeDeleteEvent.deleted(joke));
+                  context
+                      .read<WatchSavedBloc>()
+                      .add(const WatchSavedEvent.watchSavedStarted());
+                },
+                backgroundColor: Colors.red,
+                icon: Icons.delete,
+                label: 'Delete',
               ),
-            ],
+            ]),
+        child: Container(
+          margin: const EdgeInsets.all(10),
+          height: 170,
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: GradientColors.mirage,
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+            borderRadius: BorderRadius.all(Radius.circular(15)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  joke.joke,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: 18, color: Colors.white),
+                ),
+              ],
+            ),
           ),
         ),
       ),
