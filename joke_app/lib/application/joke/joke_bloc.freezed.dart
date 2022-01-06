@@ -17,8 +17,24 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$JokeEventTearOff {
   const _$JokeEventTearOff();
 
-  GetRandomJokeRequested getRandomJokeRequested() {
-    return const GetRandomJokeRequested();
+  GetRandomJokeRequested getRandomJokeRequested(List<Joke> jokeList, int height,
+      int width, List<NetworkImage> imageList) {
+    return GetRandomJokeRequested(
+      jokeList,
+      height,
+      width,
+      imageList,
+    );
+  }
+
+  GetInitialJokesRequested getInitialJokesRequested(List<Joke> jokeList,
+      int height, int width, List<NetworkImage> imageList) {
+    return GetInitialJokesRequested(
+      jokeList,
+      height,
+      width,
+      imageList,
+    );
   }
 }
 
@@ -27,19 +43,39 @@ const $JokeEvent = _$JokeEventTearOff();
 
 /// @nodoc
 mixin _$JokeEvent {
+  List<Joke> get jokeList => throw _privateConstructorUsedError;
+  int get height => throw _privateConstructorUsedError;
+  int get width => throw _privateConstructorUsedError;
+  List<NetworkImage> get imageList => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getRandomJokeRequested,
+    required TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)
+        getRandomJokeRequested,
+    required TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)
+        getInitialJokesRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getInitialJokesRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getInitialJokesRequested,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -47,18 +83,26 @@ mixin _$JokeEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(GetRandomJokeRequested value)
         getRandomJokeRequested,
+    required TResult Function(GetInitialJokesRequested value)
+        getInitialJokesRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetRandomJokeRequested value)? getRandomJokeRequested,
+    TResult Function(GetInitialJokesRequested value)? getInitialJokesRequested,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetRandomJokeRequested value)? getRandomJokeRequested,
+    TResult Function(GetInitialJokesRequested value)? getInitialJokesRequested,
     required TResult orElse(),
   }) =>
+      throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $JokeEventCopyWith<JokeEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -66,6 +110,11 @@ mixin _$JokeEvent {
 abstract class $JokeEventCopyWith<$Res> {
   factory $JokeEventCopyWith(JokeEvent value, $Res Function(JokeEvent) then) =
       _$JokeEventCopyWithImpl<$Res>;
+  $Res call(
+      {List<Joke> jokeList,
+      int height,
+      int width,
+      List<NetworkImage> imageList});
 }
 
 /// @nodoc
@@ -75,13 +124,47 @@ class _$JokeEventCopyWithImpl<$Res> implements $JokeEventCopyWith<$Res> {
   final JokeEvent _value;
   // ignore: unused_field
   final $Res Function(JokeEvent) _then;
+
+  @override
+  $Res call({
+    Object? jokeList = freezed,
+    Object? height = freezed,
+    Object? width = freezed,
+    Object? imageList = freezed,
+  }) {
+    return _then(_value.copyWith(
+      jokeList: jokeList == freezed
+          ? _value.jokeList
+          : jokeList // ignore: cast_nullable_to_non_nullable
+              as List<Joke>,
+      height: height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int,
+      width: width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int,
+      imageList: imageList == freezed
+          ? _value.imageList
+          : imageList // ignore: cast_nullable_to_non_nullable
+              as List<NetworkImage>,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $GetRandomJokeRequestedCopyWith<$Res> {
+abstract class $GetRandomJokeRequestedCopyWith<$Res>
+    implements $JokeEventCopyWith<$Res> {
   factory $GetRandomJokeRequestedCopyWith(GetRandomJokeRequested value,
           $Res Function(GetRandomJokeRequested) then) =
       _$GetRandomJokeRequestedCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {List<Joke> jokeList,
+      int height,
+      int width,
+      List<NetworkImage> imageList});
 }
 
 /// @nodoc
@@ -94,51 +177,119 @@ class _$GetRandomJokeRequestedCopyWithImpl<$Res>
 
   @override
   GetRandomJokeRequested get _value => super._value as GetRandomJokeRequested;
+
+  @override
+  $Res call({
+    Object? jokeList = freezed,
+    Object? height = freezed,
+    Object? width = freezed,
+    Object? imageList = freezed,
+  }) {
+    return _then(GetRandomJokeRequested(
+      jokeList == freezed
+          ? _value.jokeList
+          : jokeList // ignore: cast_nullable_to_non_nullable
+              as List<Joke>,
+      height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int,
+      width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int,
+      imageList == freezed
+          ? _value.imageList
+          : imageList // ignore: cast_nullable_to_non_nullable
+              as List<NetworkImage>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$GetRandomJokeRequested implements GetRandomJokeRequested {
-  const _$GetRandomJokeRequested();
+  const _$GetRandomJokeRequested(
+      this.jokeList, this.height, this.width, this.imageList);
+
+  @override
+  final List<Joke> jokeList;
+  @override
+  final int height;
+  @override
+  final int width;
+  @override
+  final List<NetworkImage> imageList;
 
   @override
   String toString() {
-    return 'JokeEvent.getRandomJokeRequested()';
+    return 'JokeEvent.getRandomJokeRequested(jokeList: $jokeList, height: $height, width: $width, imageList: $imageList)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is GetRandomJokeRequested);
+        (other.runtimeType == runtimeType &&
+            other is GetRandomJokeRequested &&
+            const DeepCollectionEquality().equals(other.jokeList, jokeList) &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality().equals(other.width, width) &&
+            const DeepCollectionEquality().equals(other.imageList, imageList));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(jokeList),
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(width),
+      const DeepCollectionEquality().hash(imageList));
+
+  @JsonKey(ignore: true)
+  @override
+  $GetRandomJokeRequestedCopyWith<GetRandomJokeRequested> get copyWith =>
+      _$GetRandomJokeRequestedCopyWithImpl<GetRandomJokeRequested>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() getRandomJokeRequested,
+    required TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)
+        getRandomJokeRequested,
+    required TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)
+        getInitialJokesRequested,
   }) {
-    return getRandomJokeRequested();
+    return getRandomJokeRequested(jokeList, height, width, imageList);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function()? getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getInitialJokesRequested,
   }) {
-    return getRandomJokeRequested?.call();
+    return getRandomJokeRequested?.call(jokeList, height, width, imageList);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getInitialJokesRequested,
     required TResult orElse(),
   }) {
     if (getRandomJokeRequested != null) {
-      return getRandomJokeRequested();
+      return getRandomJokeRequested(jokeList, height, width, imageList);
     }
     return orElse();
   }
@@ -148,6 +299,8 @@ class _$GetRandomJokeRequested implements GetRandomJokeRequested {
   TResult map<TResult extends Object?>({
     required TResult Function(GetRandomJokeRequested value)
         getRandomJokeRequested,
+    required TResult Function(GetInitialJokesRequested value)
+        getInitialJokesRequested,
   }) {
     return getRandomJokeRequested(this);
   }
@@ -156,6 +309,7 @@ class _$GetRandomJokeRequested implements GetRandomJokeRequested {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(GetRandomJokeRequested value)? getRandomJokeRequested,
+    TResult Function(GetInitialJokesRequested value)? getInitialJokesRequested,
   }) {
     return getRandomJokeRequested?.call(this);
   }
@@ -164,6 +318,7 @@ class _$GetRandomJokeRequested implements GetRandomJokeRequested {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(GetRandomJokeRequested value)? getRandomJokeRequested,
+    TResult Function(GetInitialJokesRequested value)? getInitialJokesRequested,
     required TResult orElse(),
   }) {
     if (getRandomJokeRequested != null) {
@@ -174,7 +329,215 @@ class _$GetRandomJokeRequested implements GetRandomJokeRequested {
 }
 
 abstract class GetRandomJokeRequested implements JokeEvent {
-  const factory GetRandomJokeRequested() = _$GetRandomJokeRequested;
+  const factory GetRandomJokeRequested(List<Joke> jokeList, int height,
+      int width, List<NetworkImage> imageList) = _$GetRandomJokeRequested;
+
+  @override
+  List<Joke> get jokeList;
+  @override
+  int get height;
+  @override
+  int get width;
+  @override
+  List<NetworkImage> get imageList;
+  @override
+  @JsonKey(ignore: true)
+  $GetRandomJokeRequestedCopyWith<GetRandomJokeRequested> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GetInitialJokesRequestedCopyWith<$Res>
+    implements $JokeEventCopyWith<$Res> {
+  factory $GetInitialJokesRequestedCopyWith(GetInitialJokesRequested value,
+          $Res Function(GetInitialJokesRequested) then) =
+      _$GetInitialJokesRequestedCopyWithImpl<$Res>;
+  @override
+  $Res call(
+      {List<Joke> jokeList,
+      int height,
+      int width,
+      List<NetworkImage> imageList});
+}
+
+/// @nodoc
+class _$GetInitialJokesRequestedCopyWithImpl<$Res>
+    extends _$JokeEventCopyWithImpl<$Res>
+    implements $GetInitialJokesRequestedCopyWith<$Res> {
+  _$GetInitialJokesRequestedCopyWithImpl(GetInitialJokesRequested _value,
+      $Res Function(GetInitialJokesRequested) _then)
+      : super(_value, (v) => _then(v as GetInitialJokesRequested));
+
+  @override
+  GetInitialJokesRequested get _value =>
+      super._value as GetInitialJokesRequested;
+
+  @override
+  $Res call({
+    Object? jokeList = freezed,
+    Object? height = freezed,
+    Object? width = freezed,
+    Object? imageList = freezed,
+  }) {
+    return _then(GetInitialJokesRequested(
+      jokeList == freezed
+          ? _value.jokeList
+          : jokeList // ignore: cast_nullable_to_non_nullable
+              as List<Joke>,
+      height == freezed
+          ? _value.height
+          : height // ignore: cast_nullable_to_non_nullable
+              as int,
+      width == freezed
+          ? _value.width
+          : width // ignore: cast_nullable_to_non_nullable
+              as int,
+      imageList == freezed
+          ? _value.imageList
+          : imageList // ignore: cast_nullable_to_non_nullable
+              as List<NetworkImage>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetInitialJokesRequested implements GetInitialJokesRequested {
+  const _$GetInitialJokesRequested(
+      this.jokeList, this.height, this.width, this.imageList);
+
+  @override
+  final List<Joke> jokeList;
+  @override
+  final int height;
+  @override
+  final int width;
+  @override
+  final List<NetworkImage> imageList;
+
+  @override
+  String toString() {
+    return 'JokeEvent.getInitialJokesRequested(jokeList: $jokeList, height: $height, width: $width, imageList: $imageList)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is GetInitialJokesRequested &&
+            const DeepCollectionEquality().equals(other.jokeList, jokeList) &&
+            const DeepCollectionEquality().equals(other.height, height) &&
+            const DeepCollectionEquality().equals(other.width, width) &&
+            const DeepCollectionEquality().equals(other.imageList, imageList));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(jokeList),
+      const DeepCollectionEquality().hash(height),
+      const DeepCollectionEquality().hash(width),
+      const DeepCollectionEquality().hash(imageList));
+
+  @JsonKey(ignore: true)
+  @override
+  $GetInitialJokesRequestedCopyWith<GetInitialJokesRequested> get copyWith =>
+      _$GetInitialJokesRequestedCopyWithImpl<GetInitialJokesRequested>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)
+        getRandomJokeRequested,
+    required TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)
+        getInitialJokesRequested,
+  }) {
+    return getInitialJokesRequested(jokeList, height, width, imageList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getInitialJokesRequested,
+  }) {
+    return getInitialJokesRequested?.call(jokeList, height, width, imageList);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getRandomJokeRequested,
+    TResult Function(List<Joke> jokeList, int height, int width,
+            List<NetworkImage> imageList)?
+        getInitialJokesRequested,
+    required TResult orElse(),
+  }) {
+    if (getInitialJokesRequested != null) {
+      return getInitialJokesRequested(jokeList, height, width, imageList);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(GetRandomJokeRequested value)
+        getRandomJokeRequested,
+    required TResult Function(GetInitialJokesRequested value)
+        getInitialJokesRequested,
+  }) {
+    return getInitialJokesRequested(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(GetRandomJokeRequested value)? getRandomJokeRequested,
+    TResult Function(GetInitialJokesRequested value)? getInitialJokesRequested,
+  }) {
+    return getInitialJokesRequested?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(GetRandomJokeRequested value)? getRandomJokeRequested,
+    TResult Function(GetInitialJokesRequested value)? getInitialJokesRequested,
+    required TResult orElse(),
+  }) {
+    if (getInitialJokesRequested != null) {
+      return getInitialJokesRequested(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class GetInitialJokesRequested implements JokeEvent {
+  const factory GetInitialJokesRequested(List<Joke> jokeList, int height,
+      int width, List<NetworkImage> imageList) = _$GetInitialJokesRequested;
+
+  @override
+  List<Joke> get jokeList;
+  @override
+  int get height;
+  @override
+  int get width;
+  @override
+  List<NetworkImage> get imageList;
+  @override
+  @JsonKey(ignore: true)
+  $GetInitialJokesRequestedCopyWith<GetInitialJokesRequested> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -189,9 +552,16 @@ class _$JokeStateTearOff {
     return const _LoadInProgress();
   }
 
-  _LoadSuccess loadSuccess(Joke joke) {
+  _LoadSuccess loadSuccess(List<Joke> jokeList, List<NetworkImage> imageList) {
     return _LoadSuccess(
-      joke,
+      jokeList,
+      imageList,
+    );
+  }
+
+  _JokeGettingFailure jokeGettingFailure(JokeFailure jokeFailure) {
+    return _JokeGettingFailure(
+      jokeFailure,
     );
   }
 
@@ -211,7 +581,9 @@ mixin _$JokeState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(Joke joke) loadSuccess,
+    required TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)
+        loadSuccess,
+    required TResult Function(JokeFailure jokeFailure) jokeGettingFailure,
     required TResult Function(JokeFailure jokeFailure) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -219,7 +591,9 @@ mixin _$JokeState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -227,7 +601,9 @@ mixin _$JokeState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -237,6 +613,7 @@ mixin _$JokeState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_JokeGettingFailure value) jokeGettingFailure,
     required TResult Function(_LoadFailure value) loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -245,6 +622,7 @@ mixin _$JokeState {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -253,6 +631,7 @@ mixin _$JokeState {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) =>
@@ -314,7 +693,9 @@ class _$_Initial implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(Joke joke) loadSuccess,
+    required TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)
+        loadSuccess,
+    required TResult Function(JokeFailure jokeFailure) jokeGettingFailure,
     required TResult Function(JokeFailure jokeFailure) loadFailure,
   }) {
     return initial();
@@ -325,7 +706,9 @@ class _$_Initial implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
   }) {
     return initial?.call();
@@ -336,7 +719,9 @@ class _$_Initial implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -352,6 +737,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_JokeGettingFailure value) jokeGettingFailure,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return initial(this);
@@ -363,6 +749,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
   }) {
     return initial?.call(this);
@@ -374,6 +761,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
@@ -430,7 +818,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(Joke joke) loadSuccess,
+    required TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)
+        loadSuccess,
+    required TResult Function(JokeFailure jokeFailure) jokeGettingFailure,
     required TResult Function(JokeFailure jokeFailure) loadFailure,
   }) {
     return loadInProgress();
@@ -441,7 +831,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
   }) {
     return loadInProgress?.call();
@@ -452,7 +844,9 @@ class _$_LoadInProgress implements _LoadInProgress {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -468,6 +862,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_JokeGettingFailure value) jokeGettingFailure,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadInProgress(this);
@@ -479,6 +874,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
   }) {
     return loadInProgress?.call(this);
@@ -490,6 +886,7 @@ class _$_LoadInProgress implements _LoadInProgress {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
@@ -509,9 +906,7 @@ abstract class _$LoadSuccessCopyWith<$Res> {
   factory _$LoadSuccessCopyWith(
           _LoadSuccess value, $Res Function(_LoadSuccess) then) =
       __$LoadSuccessCopyWithImpl<$Res>;
-  $Res call({Joke joke});
-
-  $JokeCopyWith<$Res> get joke;
+  $Res call({List<Joke> jokeList, List<NetworkImage> imageList});
 }
 
 /// @nodoc
@@ -526,35 +921,35 @@ class __$LoadSuccessCopyWithImpl<$Res> extends _$JokeStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? joke = freezed,
+    Object? jokeList = freezed,
+    Object? imageList = freezed,
   }) {
     return _then(_LoadSuccess(
-      joke == freezed
-          ? _value.joke
-          : joke // ignore: cast_nullable_to_non_nullable
-              as Joke,
+      jokeList == freezed
+          ? _value.jokeList
+          : jokeList // ignore: cast_nullable_to_non_nullable
+              as List<Joke>,
+      imageList == freezed
+          ? _value.imageList
+          : imageList // ignore: cast_nullable_to_non_nullable
+              as List<NetworkImage>,
     ));
-  }
-
-  @override
-  $JokeCopyWith<$Res> get joke {
-    return $JokeCopyWith<$Res>(_value.joke, (value) {
-      return _then(_value.copyWith(joke: value));
-    });
   }
 }
 
 /// @nodoc
 
 class _$_LoadSuccess implements _LoadSuccess {
-  const _$_LoadSuccess(this.joke);
+  const _$_LoadSuccess(this.jokeList, this.imageList);
 
   @override
-  final Joke joke;
+  final List<Joke> jokeList;
+  @override
+  final List<NetworkImage> imageList;
 
   @override
   String toString() {
-    return 'JokeState.loadSuccess(joke: $joke)';
+    return 'JokeState.loadSuccess(jokeList: $jokeList, imageList: $imageList)';
   }
 
   @override
@@ -562,12 +957,15 @@ class _$_LoadSuccess implements _LoadSuccess {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoadSuccess &&
-            const DeepCollectionEquality().equals(other.joke, joke));
+            const DeepCollectionEquality().equals(other.jokeList, jokeList) &&
+            const DeepCollectionEquality().equals(other.imageList, imageList));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(joke));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(jokeList),
+      const DeepCollectionEquality().hash(imageList));
 
   @JsonKey(ignore: true)
   @override
@@ -579,10 +977,12 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(Joke joke) loadSuccess,
+    required TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)
+        loadSuccess,
+    required TResult Function(JokeFailure jokeFailure) jokeGettingFailure,
     required TResult Function(JokeFailure jokeFailure) loadFailure,
   }) {
-    return loadSuccess(joke);
+    return loadSuccess(jokeList, imageList);
   }
 
   @override
@@ -590,10 +990,12 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
   }) {
-    return loadSuccess?.call(joke);
+    return loadSuccess?.call(jokeList, imageList);
   }
 
   @override
@@ -601,12 +1003,14 @@ class _$_LoadSuccess implements _LoadSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
     required TResult orElse(),
   }) {
     if (loadSuccess != null) {
-      return loadSuccess(joke);
+      return loadSuccess(jokeList, imageList);
     }
     return orElse();
   }
@@ -617,6 +1021,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_JokeGettingFailure value) jokeGettingFailure,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadSuccess(this);
@@ -628,6 +1033,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
   }) {
     return loadSuccess?.call(this);
@@ -639,6 +1045,7 @@ class _$_LoadSuccess implements _LoadSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {
@@ -650,11 +1057,179 @@ class _$_LoadSuccess implements _LoadSuccess {
 }
 
 abstract class _LoadSuccess implements JokeState {
-  const factory _LoadSuccess(Joke joke) = _$_LoadSuccess;
+  const factory _LoadSuccess(
+      List<Joke> jokeList, List<NetworkImage> imageList) = _$_LoadSuccess;
 
-  Joke get joke;
+  List<Joke> get jokeList;
+  List<NetworkImage> get imageList;
   @JsonKey(ignore: true)
   _$LoadSuccessCopyWith<_LoadSuccess> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$JokeGettingFailureCopyWith<$Res> {
+  factory _$JokeGettingFailureCopyWith(
+          _JokeGettingFailure value, $Res Function(_JokeGettingFailure) then) =
+      __$JokeGettingFailureCopyWithImpl<$Res>;
+  $Res call({JokeFailure jokeFailure});
+
+  $JokeFailureCopyWith<$Res> get jokeFailure;
+}
+
+/// @nodoc
+class __$JokeGettingFailureCopyWithImpl<$Res>
+    extends _$JokeStateCopyWithImpl<$Res>
+    implements _$JokeGettingFailureCopyWith<$Res> {
+  __$JokeGettingFailureCopyWithImpl(
+      _JokeGettingFailure _value, $Res Function(_JokeGettingFailure) _then)
+      : super(_value, (v) => _then(v as _JokeGettingFailure));
+
+  @override
+  _JokeGettingFailure get _value => super._value as _JokeGettingFailure;
+
+  @override
+  $Res call({
+    Object? jokeFailure = freezed,
+  }) {
+    return _then(_JokeGettingFailure(
+      jokeFailure == freezed
+          ? _value.jokeFailure
+          : jokeFailure // ignore: cast_nullable_to_non_nullable
+              as JokeFailure,
+    ));
+  }
+
+  @override
+  $JokeFailureCopyWith<$Res> get jokeFailure {
+    return $JokeFailureCopyWith<$Res>(_value.jokeFailure, (value) {
+      return _then(_value.copyWith(jokeFailure: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$_JokeGettingFailure implements _JokeGettingFailure {
+  const _$_JokeGettingFailure(this.jokeFailure);
+
+  @override
+  final JokeFailure jokeFailure;
+
+  @override
+  String toString() {
+    return 'JokeState.jokeGettingFailure(jokeFailure: $jokeFailure)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _JokeGettingFailure &&
+            const DeepCollectionEquality()
+                .equals(other.jokeFailure, jokeFailure));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(jokeFailure));
+
+  @JsonKey(ignore: true)
+  @override
+  _$JokeGettingFailureCopyWith<_JokeGettingFailure> get copyWith =>
+      __$JokeGettingFailureCopyWithImpl<_JokeGettingFailure>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loadInProgress,
+    required TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)
+        loadSuccess,
+    required TResult Function(JokeFailure jokeFailure) jokeGettingFailure,
+    required TResult Function(JokeFailure jokeFailure) loadFailure,
+  }) {
+    return jokeGettingFailure(jokeFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
+    TResult Function(JokeFailure jokeFailure)? loadFailure,
+  }) {
+    return jokeGettingFailure?.call(jokeFailure);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loadInProgress,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
+    TResult Function(JokeFailure jokeFailure)? loadFailure,
+    required TResult orElse(),
+  }) {
+    if (jokeGettingFailure != null) {
+      return jokeGettingFailure(jokeFailure);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadInProgress value) loadInProgress,
+    required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_JokeGettingFailure value) jokeGettingFailure,
+    required TResult Function(_LoadFailure value) loadFailure,
+  }) {
+    return jokeGettingFailure(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
+    TResult Function(_LoadFailure value)? loadFailure,
+  }) {
+    return jokeGettingFailure?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadInProgress value)? loadInProgress,
+    TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
+    TResult Function(_LoadFailure value)? loadFailure,
+    required TResult orElse(),
+  }) {
+    if (jokeGettingFailure != null) {
+      return jokeGettingFailure(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _JokeGettingFailure implements JokeState {
+  const factory _JokeGettingFailure(JokeFailure jokeFailure) =
+      _$_JokeGettingFailure;
+
+  JokeFailure get jokeFailure;
+  @JsonKey(ignore: true)
+  _$JokeGettingFailureCopyWith<_JokeGettingFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -734,7 +1309,9 @@ class _$_LoadFailure implements _LoadFailure {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loadInProgress,
-    required TResult Function(Joke joke) loadSuccess,
+    required TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)
+        loadSuccess,
+    required TResult Function(JokeFailure jokeFailure) jokeGettingFailure,
     required TResult Function(JokeFailure jokeFailure) loadFailure,
   }) {
     return loadFailure(jokeFailure);
@@ -745,7 +1322,9 @@ class _$_LoadFailure implements _LoadFailure {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
   }) {
     return loadFailure?.call(jokeFailure);
@@ -756,7 +1335,9 @@ class _$_LoadFailure implements _LoadFailure {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loadInProgress,
-    TResult Function(Joke joke)? loadSuccess,
+    TResult Function(List<Joke> jokeList, List<NetworkImage> imageList)?
+        loadSuccess,
+    TResult Function(JokeFailure jokeFailure)? jokeGettingFailure,
     TResult Function(JokeFailure jokeFailure)? loadFailure,
     required TResult orElse(),
   }) {
@@ -772,6 +1353,7 @@ class _$_LoadFailure implements _LoadFailure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadInProgress value) loadInProgress,
     required TResult Function(_LoadSuccess value) loadSuccess,
+    required TResult Function(_JokeGettingFailure value) jokeGettingFailure,
     required TResult Function(_LoadFailure value) loadFailure,
   }) {
     return loadFailure(this);
@@ -783,6 +1365,7 @@ class _$_LoadFailure implements _LoadFailure {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
   }) {
     return loadFailure?.call(this);
@@ -794,6 +1377,7 @@ class _$_LoadFailure implements _LoadFailure {
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadInProgress value)? loadInProgress,
     TResult Function(_LoadSuccess value)? loadSuccess,
+    TResult Function(_JokeGettingFailure value)? jokeGettingFailure,
     TResult Function(_LoadFailure value)? loadFailure,
     required TResult orElse(),
   }) {

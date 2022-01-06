@@ -11,7 +11,10 @@ class JokeModel {
   @HiveField(1)
   final String joke;
 
-  JokeModel({required this.id, required this.joke});
+  JokeModel({
+    required this.id,
+    required this.joke,
+  });
 
   factory JokeModel.fromDomain(Joke joke) {
     return JokeModel(

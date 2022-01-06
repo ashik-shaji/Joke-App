@@ -12,28 +12,21 @@ class JokesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height.toInt();
+    final width = MediaQuery.of(context).size.width.toInt();
     return MultiBlocProvider(
       providers: [
         BlocProvider<JokeBloc>(create: (context) {
           return getIt<JokeBloc>()
-            ..add(const JokeEvent.getRandomJokeRequested());
+            ..add(JokeEvent.getInitialJokesRequested([], height, width, []));
         }),
         BlocProvider(
           create: (context) => getIt<JokeSaveBloc>(),
-        )
-      ],
-      child: Scaffold(
-        appBar: AppBar(
-          title: const Text('Jokey'),
-          elevation: 0,
-          backgroundColor: Colors.blue,
         ),
-        body: const JokesPageBody(),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            context.router.push(const SavedJokesPageRoute());
-          },
-          child: const Icon(Icons.keyboard_arrow_right),
+      ],
+      child: const SafeArea(
+        child: Scaffold(
+          body: JokesPageBody(),
         ),
       ),
     );
