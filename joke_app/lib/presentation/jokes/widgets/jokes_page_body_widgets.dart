@@ -6,11 +6,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:joke_app/application/joke/joke_bloc.dart';
 import 'package:joke_app/application/joke_save/joke_save_bloc.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:joke_app/application/watch_saved/watch_saved_bloc.dart';
+import 'package:joke_app/domain/joke/joke.dart';
 import 'package:joke_app/presentation/routes/router.gr.dart';
 import 'package:tiktoklikescroller/tiktoklikescroller.dart';
 
-class JokesPageBody extends StatelessWidget {
-  const JokesPageBody({Key? key}) : super(key: key);
+Joke currentjoke = const Joke(id: '', joke: '');
+
+class JokesPageText extends StatelessWidget {
+  const JokesPageText({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,16 +22,106 @@ class JokesPageBody extends StatelessWidget {
     //final width = MediaQuery.of(context).size.width.toInt();
     return BlocBuilder<JokeBloc, JokeState>(builder: (context, state) {
       return state.map(
-        initial: (_) => Container(),
-        loadInProgress: (_) => const Center(child: CircularProgressIndicator()),
-        loadSuccess: (state) => TikTokStyleFullPageScroller(
+        initial: (_) => const Text(
+          'Get Started!\n',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 28,
+            color: Colors.teal,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
+        loadInProgress: (_) => Column(
+          children: [
+            const Center(child: CircularProgressIndicator(color: Colors.teal)),
+          ],
+        ),
+        loadSuccess: (state) {
+          currentjoke = state.joke;
+          return Text(
+            state.joke.joke,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 23,
+              color: Colors.teal,
+              fontWeight: FontWeight.bold,
+            ),
+          );
+        },
+        loadFailure: (state) => Center(
+            child: Text(
+          state.jokeFailure.toString(),
+          style: const TextStyle(color: Colors.blue),
+        )),
+      );
+    });
+  }
+}
+
+class JokesPageBody extends StatelessWidget {
+  const JokesPageBody({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(20.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const JokesPageText(),
+          const SizedBox(height: 40),
+          Row(
+            children: [
+              Expanded(
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all<Color>(Colors.teal)),
+                  child: const Text('Get Random Joke'),
+                  onPressed: () {
+                    context
+                        .read<JokeBloc>()
+                        .add(const JokeEvent.getRandomJokeRequested());
+                  },
+                ),
+              ),
+              const SizedBox(width: 10),
+              Expanded(
+                child: ElevatedButton(
+                  child: const Text('Add to favorites'),
+                  style: ButtonStyle(
+                      backgroundColor:
+                          MaterialStateProperty.all(Colors.teal[300])),
+                  onPressed: () {
+                    if (currentjoke.id == '') {
+                      print('nothing');
+                    } else {
+                      context
+                          .read<JokeSaveBloc>()
+                          .add(JokeSaveEvent.saved(currentjoke));
+                    }
+                  },
+                ),
+              ),
+            ],
+          )
+        ],
+      ),
+    );
+  }
+}
+
+/* TikTokStyleFullPageScroller(
           contentSize: state.jokeList.length,
+          onScrollEvent: (type, {currentIndex}) {
+            
+          },
           builder: (BuildContext ctx, int index) {
             return Container(
               decoration: const BoxDecoration(
                 /* image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: state.imageList[index],
+                  image: AssetImage('assets/smilebackground.jpg'),
                 ), */
                 gradient: LinearGradient(
                   begin: Alignment.topLeft,
@@ -133,18 +227,4 @@ class JokesPageBody extends StatelessWidget {
                   ]),
             );
           },
-        ),
-        loadFailure: (state) => Center(
-            child: Text(
-          state.jokeFailure.toString(),
-          style: const TextStyle(color: Colors.blue),
-        )),
-        jokeGettingFailure: (state) => Center(
-            child: Text(
-          state.jokeFailure.toString(),
-          style: const TextStyle(color: Colors.yellow),
-        )),
-      );
-    });
-  }
-}
+        ), */

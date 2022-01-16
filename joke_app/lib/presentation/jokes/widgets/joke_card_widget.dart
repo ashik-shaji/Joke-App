@@ -40,14 +40,20 @@ class JokeCard extends StatelessWidget {
             ]),
         child: Container(
           margin: const EdgeInsets.all(10),
-          height: 170,
-          decoration: const BoxDecoration(
-            gradient: LinearGradient(
-              colors: GradientColors.mirage,
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.all(Radius.circular(15)),
+          constraints: const BoxConstraints(
+            minHeight: 170,
+          ),
+          decoration: BoxDecoration(
+            color: Colors.teal,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.teal.withOpacity(0.5),
+                spreadRadius: 1,
+                blurRadius: 4,
+                offset: const Offset(1, 2), // changes position of shadow
+              ),
+            ],
+            borderRadius: const BorderRadius.all(Radius.circular(15)),
           ),
           child: Padding(
             padding: const EdgeInsets.all(8.0),

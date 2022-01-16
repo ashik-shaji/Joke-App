@@ -254,6 +254,10 @@ class _$JokeSaveStateTearOff {
     return const _SaveSuccess();
   }
 
+  _JokeAlreadyExist jokeAlreadyExist() {
+    return const _JokeAlreadyExist();
+  }
+
   _SaveFailure saveFailure(JokeFailure jokeFailure) {
     return _SaveFailure(
       jokeFailure,
@@ -271,6 +275,7 @@ mixin _$JokeSaveState {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function() saveSuccess,
+    required TResult Function() jokeAlreadyExist,
     required TResult Function(JokeFailure jokeFailure) saveFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -279,6 +284,7 @@ mixin _$JokeSaveState {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -287,6 +293,7 @@ mixin _$JokeSaveState {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
     required TResult orElse(),
   }) =>
@@ -296,6 +303,7 @@ mixin _$JokeSaveState {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_SaveSuccess value) saveSuccess,
+    required TResult Function(_JokeAlreadyExist value) jokeAlreadyExist,
     required TResult Function(_SaveFailure value) saveFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -304,6 +312,7 @@ mixin _$JokeSaveState {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
   }) =>
       throw _privateConstructorUsedError;
@@ -312,6 +321,7 @@ mixin _$JokeSaveState {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
     required TResult orElse(),
   }) =>
@@ -376,6 +386,7 @@ class _$_Initial implements _Initial {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function() saveSuccess,
+    required TResult Function() jokeAlreadyExist,
     required TResult Function(JokeFailure jokeFailure) saveFailure,
   }) {
     return initial();
@@ -387,6 +398,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
   }) {
     return initial?.call();
@@ -398,6 +410,7 @@ class _$_Initial implements _Initial {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
     required TResult orElse(),
   }) {
@@ -413,6 +426,7 @@ class _$_Initial implements _Initial {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_SaveSuccess value) saveSuccess,
+    required TResult Function(_JokeAlreadyExist value) jokeAlreadyExist,
     required TResult Function(_SaveFailure value) saveFailure,
   }) {
     return initial(this);
@@ -424,6 +438,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
   }) {
     return initial?.call(this);
@@ -435,6 +450,7 @@ class _$_Initial implements _Initial {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
     required TResult orElse(),
   }) {
@@ -493,6 +509,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function() saveSuccess,
+    required TResult Function() jokeAlreadyExist,
     required TResult Function(JokeFailure jokeFailure) saveFailure,
   }) {
     return actionInProgress();
@@ -504,6 +521,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
   }) {
     return actionInProgress?.call();
@@ -515,6 +533,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
     required TResult orElse(),
   }) {
@@ -530,6 +549,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_SaveSuccess value) saveSuccess,
+    required TResult Function(_JokeAlreadyExist value) jokeAlreadyExist,
     required TResult Function(_SaveFailure value) saveFailure,
   }) {
     return actionInProgress(this);
@@ -541,6 +561,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
   }) {
     return actionInProgress?.call(this);
@@ -552,6 +573,7 @@ class _$_ActionInProgress implements _ActionInProgress {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
     required TResult orElse(),
   }) {
@@ -609,6 +631,7 @@ class _$_SaveSuccess implements _SaveSuccess {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function() saveSuccess,
+    required TResult Function() jokeAlreadyExist,
     required TResult Function(JokeFailure jokeFailure) saveFailure,
   }) {
     return saveSuccess();
@@ -620,6 +643,7 @@ class _$_SaveSuccess implements _SaveSuccess {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
   }) {
     return saveSuccess?.call();
@@ -631,6 +655,7 @@ class _$_SaveSuccess implements _SaveSuccess {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
     required TResult orElse(),
   }) {
@@ -646,6 +671,7 @@ class _$_SaveSuccess implements _SaveSuccess {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_SaveSuccess value) saveSuccess,
+    required TResult Function(_JokeAlreadyExist value) jokeAlreadyExist,
     required TResult Function(_SaveFailure value) saveFailure,
   }) {
     return saveSuccess(this);
@@ -657,6 +683,7 @@ class _$_SaveSuccess implements _SaveSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
   }) {
     return saveSuccess?.call(this);
@@ -668,6 +695,7 @@ class _$_SaveSuccess implements _SaveSuccess {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
     required TResult orElse(),
   }) {
@@ -680,6 +708,129 @@ class _$_SaveSuccess implements _SaveSuccess {
 
 abstract class _SaveSuccess implements JokeSaveState {
   const factory _SaveSuccess() = _$_SaveSuccess;
+}
+
+/// @nodoc
+abstract class _$JokeAlreadyExistCopyWith<$Res> {
+  factory _$JokeAlreadyExistCopyWith(
+          _JokeAlreadyExist value, $Res Function(_JokeAlreadyExist) then) =
+      __$JokeAlreadyExistCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$JokeAlreadyExistCopyWithImpl<$Res>
+    extends _$JokeSaveStateCopyWithImpl<$Res>
+    implements _$JokeAlreadyExistCopyWith<$Res> {
+  __$JokeAlreadyExistCopyWithImpl(
+      _JokeAlreadyExist _value, $Res Function(_JokeAlreadyExist) _then)
+      : super(_value, (v) => _then(v as _JokeAlreadyExist));
+
+  @override
+  _JokeAlreadyExist get _value => super._value as _JokeAlreadyExist;
+}
+
+/// @nodoc
+
+class _$_JokeAlreadyExist implements _JokeAlreadyExist {
+  const _$_JokeAlreadyExist();
+
+  @override
+  String toString() {
+    return 'JokeSaveState.jokeAlreadyExist()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _JokeAlreadyExist);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() actionInProgress,
+    required TResult Function() saveSuccess,
+    required TResult Function() jokeAlreadyExist,
+    required TResult Function(JokeFailure jokeFailure) saveFailure,
+  }) {
+    return jokeAlreadyExist();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
+    TResult Function(JokeFailure jokeFailure)? saveFailure,
+  }) {
+    return jokeAlreadyExist?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? actionInProgress,
+    TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
+    TResult Function(JokeFailure jokeFailure)? saveFailure,
+    required TResult orElse(),
+  }) {
+    if (jokeAlreadyExist != null) {
+      return jokeAlreadyExist();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_ActionInProgress value) actionInProgress,
+    required TResult Function(_SaveSuccess value) saveSuccess,
+    required TResult Function(_JokeAlreadyExist value) jokeAlreadyExist,
+    required TResult Function(_SaveFailure value) saveFailure,
+  }) {
+    return jokeAlreadyExist(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
+    TResult Function(_SaveFailure value)? saveFailure,
+  }) {
+    return jokeAlreadyExist?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_ActionInProgress value)? actionInProgress,
+    TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
+    TResult Function(_SaveFailure value)? saveFailure,
+    required TResult orElse(),
+  }) {
+    if (jokeAlreadyExist != null) {
+      return jokeAlreadyExist(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _JokeAlreadyExist implements JokeSaveState {
+  const factory _JokeAlreadyExist() = _$_JokeAlreadyExist;
 }
 
 /// @nodoc
@@ -759,6 +910,7 @@ class _$_SaveFailure implements _SaveFailure {
     required TResult Function() initial,
     required TResult Function() actionInProgress,
     required TResult Function() saveSuccess,
+    required TResult Function() jokeAlreadyExist,
     required TResult Function(JokeFailure jokeFailure) saveFailure,
   }) {
     return saveFailure(jokeFailure);
@@ -770,6 +922,7 @@ class _$_SaveFailure implements _SaveFailure {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
   }) {
     return saveFailure?.call(jokeFailure);
@@ -781,6 +934,7 @@ class _$_SaveFailure implements _SaveFailure {
     TResult Function()? initial,
     TResult Function()? actionInProgress,
     TResult Function()? saveSuccess,
+    TResult Function()? jokeAlreadyExist,
     TResult Function(JokeFailure jokeFailure)? saveFailure,
     required TResult orElse(),
   }) {
@@ -796,6 +950,7 @@ class _$_SaveFailure implements _SaveFailure {
     required TResult Function(_Initial value) initial,
     required TResult Function(_ActionInProgress value) actionInProgress,
     required TResult Function(_SaveSuccess value) saveSuccess,
+    required TResult Function(_JokeAlreadyExist value) jokeAlreadyExist,
     required TResult Function(_SaveFailure value) saveFailure,
   }) {
     return saveFailure(this);
@@ -807,6 +962,7 @@ class _$_SaveFailure implements _SaveFailure {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
   }) {
     return saveFailure?.call(this);
@@ -818,6 +974,7 @@ class _$_SaveFailure implements _SaveFailure {
     TResult Function(_Initial value)? initial,
     TResult Function(_ActionInProgress value)? actionInProgress,
     TResult Function(_SaveSuccess value)? saveSuccess,
+    TResult Function(_JokeAlreadyExist value)? jokeAlreadyExist,
     TResult Function(_SaveFailure value)? saveFailure,
     required TResult orElse(),
   }) {

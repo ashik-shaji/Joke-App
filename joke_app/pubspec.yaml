@@ -35,7 +35,9 @@ dependencies:
     sdk: flutter
   flutter_bloc: ^8.0.0
   flutter_gradient_colors: ^2.1.1
+  flutter_hooks: ^0.18.2
   flutter_slidable: ^1.1.0
+  fluttertoast: ^8.0.8
   freezed_annotation: ^1.1.0
   get_it: ^7.2.0
   google_fonts: ^2.2.0
@@ -68,8 +70,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/smilebackground.jpg
   #   - images/a_dot_ham.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

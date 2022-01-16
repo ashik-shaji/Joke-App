@@ -22,20 +22,7 @@ class SavedJokesPage extends StatelessWidget {
           child: Container(),
         )
       ],
-      child: Scaffold(
-        appBar: AppBar(
-          foregroundColor: Colors.black,
-          title: Text(
-            'Favorites',
-            style: GoogleFonts.righteous(
-              color: Colors.black,
-            ),
-          ),
-          elevation: 0,
-          backgroundColor: Colors.white,
-        ),
-        body: const SavedJokesBody(),
-      ),
+      child: const SavedJokesBody(),
     );
   }
 }

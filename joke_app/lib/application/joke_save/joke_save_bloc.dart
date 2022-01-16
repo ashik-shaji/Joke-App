@@ -18,11 +18,32 @@ class JokeSaveBloc extends Bloc<JokeSaveEvent, JokeSaveState> {
     on<JokeSaveEvent>((event, emit) async {
       await event.map(saved: (e) async {
         emit(const JokeSaveState.actionInProgress());
-        final savedOrFailure = await _jokeRepository.saveLocally(e.joke);
-        emit(savedOrFailure.fold(
-          (f) => JokeSaveState.saveFailure(f),
-          (_) => const JokeSaveState.saveSuccess(),
-        ));
+        int idCount = 0;
+        final orgJoke = e.joke;
+        final jokesOrFailure = await _jokeRepository.watchSaved();
+        await jokesOrFailure.fold(
+          (f) async => emit(JokeSaveState.saveFailure(f)),
+          (joke) async {
+            for (var i = 0; i < joke.length; i++) {
+              if (joke[i].id.contains(orgJoke.id)) {
+                idCount++;
+              }
+            }
+            print('jokeOrFailure joke');
+            print('jokeOrFailure joke');
+            print('jokeOrFailure joke');
+            print('jokeOrFailure joke');
+            if (idCount == 0) {
+              final savedOrFailure = await _jokeRepository.saveLocally(e.joke);
+              await savedOrFailure.fold(
+                (f) async => emit(JokeSaveState.saveFailure(f)),
+                (_) async => emit(const JokeSaveState.saveSuccess()),
+              );
+            } else {
+              return emit(const JokeSaveState.jokeAlreadyExist());
+            }
+          },
+        );
       });
     });
   }

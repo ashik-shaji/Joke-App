@@ -5,6 +5,7 @@ abstract class JokeSaveState with _$JokeSaveState {
   const factory JokeSaveState.initial() = _Initial;
   const factory JokeSaveState.actionInProgress() = _ActionInProgress;
   const factory JokeSaveState.saveSuccess() = _SaveSuccess;
+  const factory JokeSaveState.jokeAlreadyExist() = _JokeAlreadyExist;
   const factory JokeSaveState.saveFailure(JokeFailure jokeFailure) =
       _SaveFailure;
 }

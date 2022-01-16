@@ -21,16 +21,17 @@ class SavedSingleJokePage extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             /* image: DecorationImage(
                     fit: BoxFit.cover,
                     image: state.imageList[index],
                   ), */
-            gradient: LinearGradient(
+            /* gradient: LinearGradient(
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: GradientColors.mirage,
-            ),
+            ), */
+            color: Colors.teal,
           ),
           child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
