@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:joke_app/application/network/network_bloc.dart';
 import 'package:joke_app/presentation/routes/router.gr.dart';
 import 'package:auto_route/auto_route.dart';
@@ -23,9 +24,21 @@ class SplashPage extends StatelessWidget {
           },
         );
       },
-      child: const Scaffold(
+      child: Scaffold(
+        backgroundColor: Colors.teal[100],
         body: Center(
-          child: CircularProgressIndicator(),
+          child: CircleAvatar(
+            radius: 60,
+            backgroundColor: Colors.teal,
+            child: Text(
+              'J',
+              textAlign: TextAlign.center,
+              style: GoogleFonts.righteous(
+                fontSize: 100,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
         ),
       ),
     );

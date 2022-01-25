@@ -48,10 +48,14 @@ class JokesPageText extends StatelessWidget {
             ),
           );
         },
-        loadFailure: (state) => Center(
+        loadFailure: (state) => const Center(
             child: Text(
-          state.jokeFailure.toString(),
-          style: const TextStyle(color: Colors.blue),
+          'Something went wrong! please try again',
+          style: TextStyle(
+            fontSize: 23,
+            color: Colors.teal,
+            fontWeight: FontWeight.bold,
+          ),
         )),
       );
     });
